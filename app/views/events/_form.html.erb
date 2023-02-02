@@ -1,0 +1,19 @@
+<%= form_with(model: @event, local: true) do |f| %>
+    
+    <%= f.label :name %>
+    <% @event.errors.full_messages_for(:name).each do |message| %>
+        <%= message %>
+    <% end %><br>
+    <%= f.text_field :name, autofocus: true %><br><br>
+
+    <%= f.label :date%><br>
+    <%= f.date_select :date, {class: "datetime"} %><br><br>
+
+    <%= f.label :location%><br>
+    <%= f.text_field :location %><br>
+
+    <%= f.label :description %><br>
+    <%= f.text_area :description, rows: 5%><br><br>
+
+    <%= f.submit "Submit", class: "btn btn-primary btn-block"%>
+<% end %>   
